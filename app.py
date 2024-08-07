@@ -16,7 +16,7 @@ from tensorflow.keras.models import load_model
 from joblib import dump,load
 
 
-df=pd.read_csv("\data\ddata.csv") 
+df=pd.read_csv("data\\ddata.csv") 
 df=df.drop(columns=['Unnamed: 0'])
 x=df.iloc[:,:-2]
 y=df.iloc[:,-2]
