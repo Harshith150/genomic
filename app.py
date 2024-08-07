@@ -56,7 +56,7 @@ X_test=mm.transform(X_test)
 from sklearn.ensemble import RandomForestRegressor  
 model_rr=RandomForestRegressor(n_estimators=14,max_depth=4,random_state=42,criterion='squared_error')
 from sklearn.ensemble import BaggingRegressor
-bg_model=BaggingRegressor(base_estimator=model_rr,n_estimators=2,random_state=42)
+bg_model=BaggingRegressor(estimator=model_rr,n_estimators=2,random_state=42)
 bg_model.fit(X_train,Y_train)
  
 lmc=model_r
