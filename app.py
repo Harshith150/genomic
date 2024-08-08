@@ -67,7 +67,7 @@ lmr=bg_model
 
 ## flask 
 
-from flask import Flask,redirect,url_for,render_template,request
+from flask import Flask,redirect,url_for,render_template,request,send_from_directory
 
 app=Flask(__name__)
 
@@ -103,15 +103,10 @@ def func2():
 def empty():
     return render_template('empty.html')
 
-@app.route('/download/<path:filename>')
+@app.route('/download/<filename>')
 def download(filename):
-    file="\\download\\"+filename
-    return send_file(file,as_attachment=True)
+    return send_from_directory('download',filename,as_attachment=True)
 
-@app.route('/downloadt/<path:filename>')
-def downloadt(filename):
-    file="\\download\\"+filename
-    return send_file(file,as_attachment=True) 
 @app.route('/inv')
 def inv():
     return "<h2>Invalid input</h2>"
