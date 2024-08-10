@@ -1,8 +1,5 @@
 import pandas as pd
 import numpy as np
-from flask import jsonify,send_file
-import json
-from tensorflow.keras.models import load_model
 from joblib import load
 from sklearn.preprocessing import MinMaxScaler
 
