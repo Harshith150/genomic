@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from joblib import load
 from sklearn.preprocessing import MinMaxScaler
-
+from flask import Flask,redirect,url_for,render_template,request,send_from_directory
 
 scaler = MinMaxScaler()
 lmc=load('model/model_r.pkl')
@@ -13,7 +13,6 @@ lmr=load('model/model_br.pkl')
 
 ## flask 
 
-from flask import Flask,redirect,url_for,render_template,request,send_from_directory
 
 app=Flask(__name__)
 
