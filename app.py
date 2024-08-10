@@ -3,6 +3,7 @@ import numpy as np
 from joblib import load
 from sklearn.preprocessing import MinMaxScaler
 from flask import Flask,redirect,url_for,render_template,request,send_from_directory
+from flask_compress import Compress
 
 scaler = MinMaxScaler()
 lmc=load('model/model_r.pkl')
@@ -15,6 +16,7 @@ lmr=load('model/model_br.pkl')
 
 
 app=Flask(__name__)
+Compress(app)
 
 @app.route('/')
 def home():

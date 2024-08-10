@@ -11,10 +11,18 @@
     h1{
         color:white;
     }
-  
+    .fixed-img {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 10px; /* Adjust as needed */
+    z-index: 1000; /* Ensure it stays on top */
+    }
     .files {
         background-color: black;
     }
+    .navbar {
+            font-size: large;
+        }
     ul {
         list-style-type: none;
         padding-left:15px;
@@ -35,9 +43,37 @@
     .white-icon {
         color:white;
     }
+    .navbar .dimg {
+            float: right;
+            width: 76px;
+            height: 50px;
+            border-radius: 5px;
+        }
    </style>  
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('Home')}}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('pred')}}">Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('data')}}">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('phylo')}}">Phylogeny</a>
+                </li>
+            </ul>
+        </div>
+        <img class="dimg fixed-img" src="{{url_for('static',filename='dm.png')}}" alt="error loading">
+    </nav>
   <h1 class="m-3">Download Files</h1> 
   <div class="files m-3 p-3">
   <ul>
@@ -50,5 +86,8 @@
   <div class="footer bg-dark mt-auto text-center p-3">
     <a class="text-white" style="font-size: large; text-decoration: none;" href="/Home">HOME</a>
 </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
