@@ -1,11 +1,17 @@
 import pandas as pd
 import numpy as np
 from joblib import load
-from sklearn.preprocessing import MinMaxScaler
+import warnings
+from sklearn.exceptions import ConvergenceWarning
+
+# Suppress specific warnings from scikit-learn
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+
 from flask import Flask,redirect,url_for,render_template,request,send_from_directory
 from flask_compress import Compress
 
-scaler = MinMaxScaler()
+#scaler = load('model/scaler_x.pkl')
 lmc=load('model/model_r.pkl')
 lmr=load('model/model_br.pkl')  
 # lmc=load_model('testc.h5') deep learning model(ann) for classification
@@ -108,10 +114,9 @@ def submit():
             enc_dfff['sub']=id
             enc_dfff.columns=enc_dfff.columns.astype(str)
             enc_dfff['sub']=enc_dfff['sub'].astype('category').cat.codes +1 
-            """
-            scaler.fit(enc_dfff)
-            enc_dfff= scaler.transform(enc_dfff)
-            """
+            #scaler.fit(enc_dfff)
+            #enc_dfff= scaler.transform(enc_dfff)
+            enc_dfff=enc_dfff.values
             res=lmr.predict(enc_dfff)
             res_df=pd.DataFrame()   
             res_df['sequence']=ss
