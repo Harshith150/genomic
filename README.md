@@ -2,4 +2,5 @@
 
 ![Image](static/ui.png)
 
-you can also visit genomic.onrender.com, but the site may take time to load.
+you can also visit https//:genomic.onrender.com <br>
+But the site may take time to load.
